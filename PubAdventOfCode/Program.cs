@@ -1,4 +1,5 @@
 ﻿using AdventOfCode.Core.Contracts;
+using PubAdventOfCode._2024.Puzzles.DayFour;
 using PubAdventOfCode._2024.Puzzles.DayOne;
 using PubAdventOfCode._2024.Puzzles.DayThree;
 using PubAdventOfCode._2024.Puzzles.DayTwo;
@@ -9,6 +10,7 @@ var modules = new List<IAdventModule>
     new SolutionDayOne(),
     new SolutionDayTwo(),
     new SolutionDayThree(),
+    new SolutionDayFour(),
 };
 
 foreach (var item in modules)
