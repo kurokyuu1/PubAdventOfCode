@@ -1,4 +1,6 @@
-This is the first real public repo I made for [Advent of Code](https://adventofcode.com). Currently there's only 2024, the other years 2022, 2023 would need some cleaning. But maybe if I have time I'll add them here.
+This is the first real public repo I made for [Advent of Code](https://adventofcode.com).
+There are the years of 2022 - 2024, had to clean up 2022 - 2023 a bit, and did some small changes, but not much from the initial code.
+I did not every day, so there are missing days, and some solutions have not fully solved the puzzle some have only part1, or code is in general broken. 
 
 I'm doing the challanges with C# and .NET 9.
 
