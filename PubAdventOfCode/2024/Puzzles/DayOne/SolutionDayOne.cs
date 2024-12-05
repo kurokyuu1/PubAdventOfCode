@@ -17,7 +17,7 @@ public sealed class SolutionDayOne : SolutionBase
 
     #region "Constructor"
 
-    public SolutionDayOne() : base("2024","01", true)
+    public SolutionDayOne() : base("2024", "01", true)
     {
     }
 

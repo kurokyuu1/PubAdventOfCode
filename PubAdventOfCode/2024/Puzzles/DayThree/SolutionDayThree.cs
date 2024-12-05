@@ -38,8 +38,12 @@ public sealed class SolutionDayThree : SolutionBase
     {
         _lines = await InternalReadAllLinesAsync();
 
-        SolvePuzzleOne(Mode == ReadingMode.TestInput ? _lines[..1].ToArray() : _lines); // produces correct result for both test and input
-        SolvePuzzleTwo(Mode == ReadingMode.TestInput ? _lines[1..].ToArray() : _lines); // produces correct result for only test, input seems to be off
+        SolvePuzzleOne(Mode == ReadingMode.TestInput
+            ? _lines[..1].ToArray()
+            : _lines); // produces correct result for both test and input
+        SolvePuzzleTwo(Mode == ReadingMode.TestInput
+            ? _lines[1..].ToArray()
+            : _lines); // produces correct result for only test, input seems to be off
     }
 
     private void SolvePuzzleOne(Span<string> lines)

@@ -1,21 +1,28 @@
 ﻿using AdventOfCode.Core.Contracts;
-using PubAdventOfCode._2024.Puzzles.DayFour;
-using PubAdventOfCode._2024.Puzzles.DayOne;
-using PubAdventOfCode._2024.Puzzles.DayThree;
-using PubAdventOfCode._2024.Puzzles.DayTwo;
-using static System.Console;
+using PubAdventOfCode._2022.Models;
+using PubAdventOfCode._2023.Models;
+using PubAdventOfCode._2024.Models;
 
-var modules = new List<IAdventModule>
+var aoc = new Dictionary<int, List<IAdventModule>>
 {
-    new SolutionDayOne(),
-    new SolutionDayTwo(),
-    new SolutionDayThree(),
-    new SolutionDayFour(),
+    { 2022, Aoc2022Extensions.ModulesFor2022 },
+    { 2023, Aoc2023Extensions.ModulesFor2023},
+    { 2024, Aoc2024Extensions.ModulesFor2024 },
 };
+
+WriteLine("Enter the year to run the Advent of Code modules for:");
+var year = ReadLine()?.ToInt() ?? DateTime.Now.Year;
+
+if (!aoc.TryGetValue(year, out var modules))
+{
+    WriteLine($"No modules found for year {year}");
+    Read();
+    return;
+}
 
 foreach (var item in modules)
 {
-    WriteLine($"Running module {(Attribute.GetCustomAttribute(item.GetType(), typeof(AdventModuleAttribute)) as AdventModuleAttribute)?.Name}");
+    WriteLine($"Running module [{(Attribute.GetCustomAttribute(item.GetType(), typeof(AdventModuleAttribute)) as AdventModuleAttribute)?.Name}]");
 
     await item.RunAsync();
 }
