@@ -32,17 +32,26 @@ The project structure is like this:
   ```
 In the `Program.cs` then you have to write this:
 ```cs
-using static System.Console;
-
-var modules = new List<IAdventModule>
+var aoc = new Dictionary<int, List<IAdventModule>>
 {
-    new SolutionDayOne(),
-    new SolutionDayTwo()
+    { 2022, Aoc2022Extensions.ModulesFor2022 },
+    { 2023, Aoc2023Extensions.ModulesFor2023},
+    { 2024, Aoc2024Extensions.ModulesFor2024 },
 };
+
+WriteLine("Enter the year to run the Advent of Code modules for:");
+var year = ReadLine()?.ToInt() ?? DateTime.Now.Year;
+
+if (!aoc.TryGetValue(year, out var modules))
+{
+    WriteLine($"No modules found for year {year}");
+    Read();
+    return;
+}
 
 foreach (var item in modules)
 {
-    WriteLine($"Running module {(Attribute.GetCustomAttribute(item.GetType(), typeof(AdventModuleAttribute)) as AdventModuleAttribute)?.Name}");
+    WriteLine($"Running module [{(Attribute.GetCustomAttribute(item.GetType(), typeof(AdventModuleAttribute)) as AdventModuleAttribute)?.Name}]");
 
     await item.RunAsync();
 }
