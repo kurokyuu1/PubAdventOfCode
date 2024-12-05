@@ -1,5 +1,6 @@
 ﻿namespace PubAdventOfCode._2024.Puzzles.DayFour;
 
+[AdventModule("Day Four")]
 public sealed class SolutionDayFour : SolutionBase
 {
     #region "Constants"
